@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FluffCo Down Alternative -- Creative Brief</title>
+<style>
+@font-face {
+  font-family: 'Recoleta';
+  src: url('https://fluff.co/cdn/shop/t/129/assets/Recoleta-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PPPangram';
+  src: url('https://fluff.co/cdn/shop/t/129/assets/PPPangramSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+:root {
+  --cream: #FAF3EF;
+  --blush: #F5EBE6;
+  --linen: #E4D5CB;
+  --navy: #424680;
+  --navy-dark: #2D2F5A;
+  --coral: #E63946;
+  --dark: #1A1A1A;
+  --mid: #555555;
+  --light: #999999;
+  --green: #1A7A4A;
+  --amber: #F59E0B;
+  --white: #FFFFFF;
+  --border: #E4D5CB;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'PPPangram', 'Helvetica Neue', sans-serif; background: var(--cream); color: var(--dark); font-size: 14px; line-height: 1.7; }
+.page { max-width: 900px; margin: 0 auto; padding: 56px 40px; }
+
+/* HEADER */
+.header { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 28px; margin-bottom: 40px; border-bottom: 2px solid var(--navy); }
+.logo { font-family: 'Recoleta', Georgia, serif; font-size: 36px; color: var(--navy); letter-spacing: -1px; }
+.logo span { color: var(--coral); }
+.header-right { text-align: right; }
+.header-tag { font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--light); margin-bottom: 6px; }
+.pills { display: flex; gap: 6px; justify-content: flex-end; flex-wrap: wrap; }
+.pill { font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 20px; letter-spacing: 0.5px; }
+.pill-navy { background: var(--navy); color: white; }
+.pill-coral { background: var(--coral); color: white; }
+.pill-outline { border: 1px solid var(--navy); color: var(--navy); }
+
+/* SUMMARY */
+.summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 48px; }
+.sum-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 20px 16px; text-align: center; }
+.sum-num { font-family: 'Recoleta', Georgia, serif; font-size: 32px; color: var(--navy); line-height: 1; }
+.sum-label { font-size: 11px; color: var(--light); text-transform: uppercase; letter-spacing: 1px; margin-top: 6px; }
+
+/* SECTION */
+.section { margin-bottom: 48px; }
+.section-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--coral); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+.section-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.section-title { font-family: 'Recoleta', Georgia, serif; font-size: 24px; color: var(--navy); margin-bottom: 16px; }
+
+/* CARDS */
+.card { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin-bottom: 14px; }
+.card-header { display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; margin-bottom: 16px; border-bottom: 1px solid var(--border); }
+.card-title { font-family: 'Recoleta', Georgia, serif; font-size: 18px; color: var(--navy); }
+.badge { font-size: 11px; font-weight: 500; padding: 4px 12px; border-radius: 20px; }
+.badge-coral { background: #FEF0F1; color: var(--coral); }
+.badge-navy { background: #EEEEF8; color: var(--navy); }
+.badge-green { background: #E8F5EE; color: var(--green); }
+.badge-amber { background: #FEF9EC; color: #8A6000; }
+
+/* INFO BOX */
+.info-box { background: var(--blush); border-radius: 10px; padding: 14px 16px; font-size: 13px; color: var(--mid); margin-top: 12px; }
+.info-box strong { color: var(--navy); }
+
+/* 2 COL GRID */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.four-col { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+
+/* GUARDRAIL */
+.guardrail { border-radius: 10px; padding: 16px; border-left: 3px solid var(--navy); background: var(--blush); }
+.guardrail.red { border-left-color: var(--coral); }
+.guardrail.green { border-left-color: var(--green); }
+.guardrail-title { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; color: var(--navy); }
+.guardrail.red .guardrail-title { color: var(--coral); }
+.guardrail.green .guardrail-title { color: var(--green); }
+ul.glist { list-style: none; padding: 0; }
+ul.glist li { font-size: 13px; color: var(--mid); padding: 5px 0 5px 18px; position: relative; border-bottom: 0.5px solid var(--border); line-height: 1.5; }
+ul.glist li:last-child { border-bottom: none; }
+ul.glist li::before { content: '→'; position: absolute; left: 0; color: var(--coral); font-size: 11px; top: 7px; }
+
+/* COLOR SWATCHES */
+.swatch-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 12px; }
+.swatch { display: flex; align-items: center; gap: 10px; }
+.dot { width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.08); flex-shrink: 0; }
+.swatch-name { font-size: 12px; font-weight: 500; color: var(--dark); display: block; }
+.swatch-hex { font-size: 11px; color: var(--light); }
+
+/* FONT DEMO */
+.font-demo { display: flex; gap: 14px; margin-top: 12px; }
+.font-card { flex: 1; background: var(--blush); border-radius: 10px; padding: 16px; text-align: center; }
+.font-sample-rec { font-family: 'Recoleta', Georgia, serif; font-size: 24px; color: var(--navy); }
+.font-sample-pan { font-family: 'PPPangram', 'Helvetica Neue', sans-serif; font-size: 16px; font-weight: 500; color: var(--navy); }
+.font-use { font-size: 11px; color: var(--light); margin-top: 4px; }
+
+/* SAFE AREA */
+.safe-wrap { display: flex; gap: 28px; align-items: flex-start; }
+.phone { width: 110px; flex-shrink: 0; height: 196px; background: #E0D8D0; border-radius: 14px; border: 1.5px solid #AAA; position: relative; overflow: hidden; }
+.z-danger { position: absolute; left: 0; right: 0; background: rgba(230,57,70,0.22); }
+.z-safe { position: absolute; left: 0; right: 0; background: rgba(26,122,74,0.1); border-top: 1.5px dashed #1A7A4A; border-bottom: 1.5px dashed #1A7A4A; }
+.z-label { position: absolute; left: 0; right: 0; text-align: center; font-size: 7px; font-weight: 600; }
+.spec-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.spec-table td { padding: 8px 0; border-bottom: 0.5px solid var(--border); }
+.spec-table tr:last-child td { border-bottom: none; }
+.spec-key { color: var(--mid); }
+.spec-val { font-weight: 500; color: var(--navy); font-family: monospace; font-size: 12px; text-align: right; }
+
+/* LAYER BLOCKS */
+.layer-l1 { background: #EEEEF8; border: 1px solid #C4C6E8; border-radius: 12px; padding: 20px; margin-bottom: 12px; }
+.layer-l2 { background: #FEF9EC; border: 1px solid #F0D890; border-radius: 12px; padding: 20px; }
+.layer-title { font-family: 'Recoleta', Georgia, serif; font-size: 17px; color: var(--navy); margin-bottom: 6px; }
+.layer-l2 .layer-title { color: #7A5500; }
+.layer-sub { font-size: 13px; color: #555; margin-bottom: 14px; line-height: 1.6; }
+.layer-l2 .layer-sub { color: #7A5500; }
+.mini-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.mini-card { background: rgba(255,255,255,0.6); border-radius: 8px; padding: 10px 12px; font-size: 12px; color: var(--mid); }
+.mini-card strong { color: var(--navy); display: block; margin-bottom: 2px; }
+
+/* DISTRIBUTION TABLE */
+table.dist { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px; }
+table.dist th { background: var(--navy); color: white; padding: 10px 14px; text-align: left; font-size: 11px; letter-spacing: 0.5px; font-weight: 500; }
+table.dist td { padding: 10px 14px; border-bottom: 0.5px solid var(--border); vertical-align: middle; }
+table.dist tr:last-child td { border-bottom: none; font-weight: 500; background: var(--blush); }
+table.dist tr:nth-child(even) td { background: #F8F4F1; }
+
+/* DO DONT */
+.do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.dont-card { border-radius: 10px; padding: 14px; border-left: 3px solid var(--coral); background: #FEF0F1; }
+.do-card { border-radius: 10px; padding: 14px; border-left: 3px solid var(--green); background: #E8F5EE; }
+.dd-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+.dont-card .dd-label { color: var(--coral); }
+.do-card .dd-label { color: var(--green); }
+.dd-item { font-size: 12px; padding: 5px 0; border-bottom: 0.5px solid rgba(0,0,0,0.08); color: var(--dark); line-height: 1.5; }
+.dd-item:last-child { border-bottom: none; }
+.dd-note { font-size: 12px; color: var(--mid); margin-top: 12px; padding: 10px 12px; background: var(--blush); border-radius: 8px; border-left: 3px solid var(--navy); }
+
+/* TRACKS */
+.track-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.track-card { background: white; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.track-card.full { grid-column: 1 / -1; }
+.track-top { height: 4px; }
+.t1 .track-top { background: var(--navy); }
+.t2 .track-top { background: var(--coral); }
+.t3 .track-top { background: var(--amber); }
+.t4 .track-top { background: var(--green); }
+.t5 .track-top { background: #9B59B6; }
+.track-body { padding: 18px 20px; }
+.track-eyebrow { font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--light); margin-bottom: 4px; }
+.track-name { font-family: 'Recoleta', Georgia, serif; font-size: 18px; color: var(--navy); margin-bottom: 4px; }
+.track-meta { font-size: 11px; color: var(--light); margin-bottom: 12px; }
+.track-goal { font-size: 13px; color: var(--mid); margin-bottom: 14px; line-height: 1.6; padding-bottom: 12px; border-bottom: 0.5px solid var(--border); }
+.copy-block { background: var(--blush); border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+.copy-block-title { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; color: var(--light); margin-bottom: 8px; }
+.copy-item { font-size: 12px; color: var(--dark); padding: 5px 0; border-bottom: 0.5px solid var(--border); line-height: 1.5; }
+.copy-item:last-child { border-bottom: none; }
+.visual-note { font-size: 12px; color: var(--mid); font-style: italic; line-height: 1.5; }
+
+/* REFERENCE TABLE */
+table.ref { width: 100%; border-collapse: collapse; font-size: 13px; }
+table.ref th { background: var(--navy); color: white; padding: 10px 14px; text-align: left; font-size: 11px; letter-spacing: 0.5px; font-weight: 500; }
+table.ref td { padding: 10px 14px; border-bottom: 0.5px solid var(--border); vertical-align: top; }
+table.ref tr:last-child td { border-bottom: none; }
+table.ref tr:nth-child(even) td { background: var(--blush); }
+
+/* LEARNING TABLE */
+table.learn { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px; }
+table.learn th { background: #7A5500; color: white; padding: 10px 14px; text-align: left; font-size: 11px; letter-spacing: 0.5px; font-weight: 500; }
+table.learn td { padding: 10px 14px; border-bottom: 0.5px solid var(--border); vertical-align: top; line-height: 1.5; }
+table.learn tr:last-child td { border-bottom: none; }
+table.learn tr:nth-child(even) td { background: rgba(254,249,236,0.6); }
+
+/* NAMING */
+.naming-demo { background: var(--navy); color: white; border-radius: 10px; padding: 16px 20px; font-family: monospace; font-size: 16px; text-align: center; letter-spacing: 1px; margin-bottom: 10px; }
+.naming-demo span { color: #FFD580; }
+
+/* STANDING */
+.standing { background: var(--navy); color: white; border-radius: 14px; padding: 28px; margin-top: 48px; }
+.standing h2 { font-family: 'Recoleta', Georgia, serif; font-size: 22px; margin-bottom: 14px; }
+.standing p { font-size: 13px; line-height: 1.7; opacity: 0.85; margin-bottom: 10px; }
+.standing strong { color: #FFD580; opacity: 1; }
+.standing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 16px; }
+.standing-item { background: rgba(255,255,255,0.08); border-radius: 8px; padding: 12px 14px; }
+.standing-item-label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.6; margin-bottom: 4px; }
+.standing-item-val { font-size: 13px; font-weight: 500; }
+
+/* FOOTER */
+.footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+.footer-brand { font-family: 'Recoleta', Georgia, serif; font-size: 16px; color: var(--navy); }
+.footer-note { font-size: 11px; color: var(--light); }
+
+@media print { body { background: white; } .page { padding: 24px; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<div class="header">
+  <div>
+    <div class="logo">FLUFF<span>Co</span></div>
+    <div style="font-size:13px;color:var(--mid);margin-top:4px;">Down Alternative Pillow -- Creative Brief</div>
+  </div>
+  <div class="header-right">
+    <div class="header-tag">Prepared for Blitzads</div>
+    <div class="pills">
+      <span class="pill pill-navy">Story 9:16 Only</span>
+      <span class="pill pill-coral">522 Total Assets</span>
+      <span class="pill pill-outline">APR W3 Delivery</span>
+    </div>
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<div class="summary">
+  <div class="sum-card"><div class="sum-num">522</div><div class="sum-label">Total Assets</div></div>
+  <div class="sum-card"><div class="sum-num">22</div><div class="sum-label">Resizes</div></div>
+  <div class="sum-card"><div class="sum-num">200</div><div class="sum-label">Layer 1 Iterations</div></div>
+  <div class="sum-card"><div class="sum-num">300</div><div class="sum-label">Layer 2 Explorations</div></div>
+</div>
+
+<!-- PART 1 -->
+<div class="section">
+  <div class="section-eyebrow">Part 1</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">Resizing -- 22 Existing Assets</div>
+      <span class="badge badge-coral">22 assets</span>
+    </div>
+    <p style="font-size:13px;color:var(--mid);">Resize all 22 existing assets to Story 9:16. No copy changes. No visual recomposition. Direct resize only.</p>
+    <div class="info-box"><strong>Why:</strong> These assets ran in Feed format. We want to test them in Story format as a separate audience surface before drawing any performance conclusions. Safe area rules apply -- see safe area section.</div>
+  </div>
+</div>
+
+<!-- PART 2 OVERVIEW -->
+<div class="section">
+  <div class="section-eyebrow">Part 2 -- Overview</div>
+  <div class="card">
+    <div class="card-header">
+      <div class="card-title">500 New Assets</div>
+      <span class="badge badge-navy">Story 9:16 only</span>
+    </div>
+    <div class="two-col" style="font-size:13px;">
+      <div>
+        <div style="font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:1px;color:var(--light);margin-bottom:4px;">Product</div>
+        <div style="font-weight:500;color:var(--navy);">FluffCo Down Alternative Pillow</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:1px;color:var(--light);margin-bottom:4px;">Landing Page</div>
+        <div style="font-weight:500;color:var(--navy);">get.fluff.co</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:1px;color:var(--light);margin-bottom:4px;">Price Points</div>
+        <div style="color:var(--mid);">$69.90 (1) &nbsp;/&nbsp; $109.90 (2) &nbsp;/&nbsp; $165.90 (4)</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:1px;color:var(--light);margin-bottom:4px;">Core Positioning Anchor</div>
+        <div style="color:var(--mid);">Hotel-quality sleep at an accessible price -- every single asset, no exception</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND GUARDRAILS -->
+<div class="section">
+  <div class="section-eyebrow">Brand Guardrails</div>
+
+  <!-- Fonts -->
+  <div class="card" style="margin-bottom:14px;">
+    <div class="card-header"><div class="card-title">Typography</div></div>
+    <div class="font-demo">
+      <div class="font-card">
+        <div class="font-sample-rec">Recoleta</div>
+        <div class="font-use">Headlines and display text</div>
+      </div>
+      <div class="font-card">
+        <div class="font-sample-pan">PP Pangram Sans</div>
+        <div class="font-use">Body copy, buttons, UI text</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Colors -->
+  <div class="card" style="margin-bottom:14px;">
+    <div class="card-header"><div class="card-title">Color Palette -- reference get.fluff.co</div></div>
+    <div class="swatch-row">
+      <div class="swatch"><div class="dot" style="background:#FAF3EF;"></div><div><span class="swatch-name">Warm Cream</span><span class="swatch-hex">#FAF3EF -- Primary BG</span></div></div>
+      <div class="swatch"><div class="dot" style="background:#F5EBE6;"></div><div><span class="swatch-name">Blush</span><span class="swatch-hex">#F5EBE6 -- Secondary BG</span></div></div>
+      <div class="swatch"><div class="dot" style="background:#424680;"></div><div><span class="swatch-name">Navy</span><span class="swatch-hex">#424680 -- Headlines, Logo</span></div></div>
+      <div class="swatch"><div class="dot" style="background:#E63946;"></div><div><span class="swatch-name">Coral Red</span><span class="swatch-hex">#E63946 -- CTA Buttons</span></div></div>
+      <div class="swatch"><div class="dot" style="background:#1A1A1A;"></div><div><span class="swatch-name">Near Black</span><span class="swatch-hex">#1A1A1A -- Body Text</span></div></div>
+      <div class="swatch"><div class="dot" style="background:#F59E0B;"></div><div><span class="swatch-name">Amber</span><span class="swatch-hex">#F59E0B -- Star Ratings</span></div></div>
+      <div class="swatch"><div class="dot" style="background:#22C55E;"></div><div><span class="swatch-name">Green</span><span class="swatch-hex">#22C55E -- Trust Accents</span></div></div>
+    </div>
+  </div>
+
+  <!-- Rules -->
+  <div class="two-col">
+    <div class="guardrail red">
+      <div class="guardrail-title">AI Generation -- Strictly Enforced</div>
+      <ul class="glist">
+        <li>Product must be 1:1 with real FluffCo pillows -- use provided reference images. Shape, piping detail, and fill loft must match exactly</li>
+        <li>No AI artifacts -- no warped fabric, impossible folds, extra pillows appearing, distorted text, melting edges, unnatural halos</li>
+        <li>If pillow render does not look real and accurate -- regenerate. Do not ship.</li>
+        <li>All scenes must feel photorealistic -- not painterly, not fantasy, not over-rendered</li>
+      </ul>
+    </div>
+    <div class="guardrail">
+      <div class="guardrail-title">General Rules</div>
+      <ul class="glist">
+        <li>No em dashes in any copy</li>
+        <li>CTA buttons: clean action text only -- no price in button copy</li>
+        <li>No cluttered layouts -- one dominant message per asset</li>
+        <li>Every asset must feel like it belongs on a premium brand's Instagram</li>
+        <li>No price in Track 1, Track 3, Track 5</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SAFE AREA -->
+<div class="section">
+  <div class="section-eyebrow">Safe Area -- Mandatory</div>
+  <div class="card">
+    <div class="card-header"><div class="card-title">Story 9:16 Safe Zone</div><span class="badge badge-coral">1080 x 1920px canvas</span></div>
+    <div class="safe-wrap">
+      <div>
+        <div class="phone">
+          <div class="z-danger" style="top:0;height:25px;"><div class="z-label" style="top:7px;color:#E63946;">DANGER</div></div>
+          <div class="z-safe" style="top:25px;height:146px;"><div class="z-label" style="top:65px;color:#1A7A4A;">SAFE ZONE</div></div>
+          <div class="z-danger" style="bottom:0;height:25px;"><div class="z-label" style="top:7px;color:#E63946;">DANGER</div></div>
+        </div>
+        <div style="font-size:10px;color:var(--light);text-align:center;margin-top:6px;">Not to scale</div>
+      </div>
+      <div style="flex:1;">
+        <table class="spec-table">
+          <tr><td class="spec-key">Top safe boundary</td><td class="spec-val">y = 250px</td></tr>
+          <tr><td class="spec-key">Bottom safe boundary</td><td class="spec-val">y = 1600px</td></tr>
+          <tr><td class="spec-key">Feed-safe zone</td><td class="spec-val">y = 460px to y = 1460px</td></tr>
+          <tr><td class="spec-key">Left and right margins</td><td class="spec-val">64px minimum each side</td></tr>
+          <tr><td class="spec-key">Top 250px</td><td class="spec-val">Leave empty -- IG UI overlaps</td></tr>
+          <tr><td class="spec-key">Bottom 320px</td><td class="spec-val">Leave empty -- caption and reply bar</td></tr>
+        </table>
+        <div class="info-box" style="margin-top:12px;">Product image can bleed outside safe zone as a background element -- but the pillow itself must be fully visible within the safe zone at all times.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FILE NAMING -->
+<div class="section">
+  <div class="section-eyebrow">File Naming Convention</div>
+  <div class="card">
+    <div class="card-header"><div class="card-title">Naming Structure</div></div>
+    <div class="naming-demo">Blitzads - FluffCo DA <span>FW[week]</span> - <span>[number]</span></div>
+    <div class="two-col" style="font-size:13px;">
+      <div style="background:var(--blush);border-radius:8px;padding:12px;">
+        <div style="font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:1px;color:var(--light);margin-bottom:6px;">Week examples</div>
+        <div style="color:var(--mid);">W1 batch: Blitzads - FluffCo DA FW1 - 001</div>
+        <div style="color:var(--mid);margin-top:4px;">W2 batch: Blitzads - FluffCo DA FW2 - 001</div>
+      </div>
+      <div style="background:var(--blush);border-radius:8px;padding:12px;">
+        <div style="font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:1px;color:var(--light);margin-bottom:6px;">Numbering</div>
+        <div style="color:var(--mid);">Reset numbering to 001 at the start of each weekly batch. Organize files by Track folder inside each weekly delivery.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ASSET STRUCTURE -->
+<div class="section">
+  <div class="section-eyebrow">Asset Structure -- 500 New Assets</div>
+
+  <!-- Layer 1 -->
+  <div class="layer-l1" style="margin-bottom:12px;">
+    <div class="layer-title">Layer 1 -- Winner Iterations &nbsp;<span class="badge badge-navy">200 assets</span></div>
+    <div class="layer-sub">Base: The 22 existing assets, focused on top 9 performers. Keep the proven copy angle and message. Change the background and visual composition entirely. No two assets should share the same scene, color palette, or room setting.</div>
+    <div class="mini-grid">
+      <div class="mini-card"><strong>Bedroom styles</strong>Minimalist, warm/cozy, modern, Scandinavian, hotel-room aesthetic</div>
+      <div class="mini-card"><strong>Lighting</strong>Morning light, evening warm tones, bright midday, moody low light</div>
+      <div class="mini-card"><strong>Perspective</strong>Wide room shot, close-up product, overhead, lifestyle with person</div>
+      <div class="mini-card"><strong>Color temperature</strong>Warm, cool, neutral -- rotate across assets. Never repeat the same background twice.</div>
+    </div>
+  </div>
+
+  <!-- Layer 2 -->
+  <div class="layer-l2">
+    <div class="layer-title">Layer 2 -- New Format Exploration &nbsp;<span class="badge badge-amber">300 assets</span></div>
+    <div class="layer-sub">Base: The learnings from why the winners worked -- not the assets themselves. Explore freely. New copy, new visual concepts, new hooks. Hotel-quality sleep positioning must anchor every asset.</div>
+    <table class="learn">
+      <thead><tr><th>Winner Learning</th><th>New Format to Explore</th></tr></thead>
+      <tbody>
+        <tr><td>Identity hook works</td><td>"Things I no longer cheap out on" / "Adulting means..." / "Nobody warned me how much a good pillow changes everything"</td></tr>
+        <tr><td>Price contrast resonates</td><td>Visual price comparison -- hotel room rate vs $69.90 / hotel pillow retail price vs FluffCo</td></tr>
+        <tr><td>Review language is powerful</td><td>First-person POV copy written as if the customer is speaking -- raw, unpolished, human. No review card format needed.</td></tr>
+        <tr><td>Feature callouts perform</td><td>Single-feature hero focus -- one idea, one visual, one message. Not a grid of features.</td></tr>
+        <tr><td>Lifestyle bedroom scenes work</td><td>Morning routine framing -- what does waking up feel like after sleeping on this pillow</td></tr>
+      </tbody>
+    </table>
+
+    <!-- Do Dont -->
+    <div class="do-dont">
+      <div class="dont-card">
+        <div class="dd-label">Layer 2 is NOT this</div>
+        <div class="dd-item">Same bedroom background, different headline -- that is Layer 1</div>
+        <div class="dd-item">Swapping copy on an existing template layout</div>
+        <div class="dd-item">Same visual structure with a new color filter</div>
+        <div class="dd-item">Reusing the same pillow composition with new text overlay</div>
+      </div>
+      <div class="do-card">
+        <div class="dd-label">Layer 2 IS this</div>
+        <div class="dd-item">Entirely new concept -- e.g. hotel receipt visual comparing room rate vs $69.90</div>
+        <div class="dd-item">New format -- e.g. a list-style creative instead of headline + product shot</div>
+        <div class="dd-item">New entry point -- allergen angle, gift angle, morning routine instead of hotel quality</div>
+        <div class="dd-item">New visual language -- review card format, split screen, close-up texture</div>
+      </div>
+    </div>
+    <div class="dd-note">Rule of thumb: if a Layer 2 asset could pass as a Layer 1 variation, it is not Layer 2. It must feel like a genuinely different creative idea.</div>
+  </div>
+
+  <!-- Distribution Table -->
+  <div style="margin-top:16px;">
+    <div style="font-size:13px;font-weight:500;color:var(--navy);margin-bottom:8px;">Layer x Track distribution</div>
+    <table class="dist">
+      <thead><tr><th>Track</th><th>Layer 1 -- Iterations</th><th>Layer 2 -- Exploration</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr><td>Track 1 -- Identity/Awareness</td><td><span class="badge badge-navy">40 assets</span></td><td><span class="badge badge-amber">60 assets</span></td><td>100</td></tr>
+        <tr><td>Track 2 -- Price/Value</td><td><span class="badge badge-navy">40 assets</span></td><td><span class="badge badge-amber">60 assets</span></td><td>100</td></tr>
+        <tr><td>Track 3 -- Social Proof</td><td><span class="badge badge-navy">40 assets</span></td><td><span class="badge badge-amber">60 assets</span></td><td>100</td></tr>
+        <tr><td>Track 4 -- Product Education</td><td><span class="badge badge-navy">40 assets</span></td><td><span class="badge badge-amber">60 assets</span></td><td>100</td></tr>
+        <tr><td>Track 5 -- Lifestyle/Aspiration</td><td><span class="badge badge-navy">40 assets</span></td><td><span class="badge badge-amber">60 assets</span></td><td>100</td></tr>
+        <tr><td>Total</td><td>200 assets</td><td>300 assets</td><td>500</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- REFERENCE ASSET MAPPING -->
+<div class="section">
+  <div class="section-eyebrow">Reference Asset Mapping</div>
+  <div class="card">
+    <div class="card-header"><div class="card-title">9 Winning Assets -- Track Reference</div><span class="badge badge-coral">Layer 1 base</span></div>
+    <table class="ref">
+      <thead><tr><th>#</th><th>Asset Copy / Angle</th><th>Maps to Track</th><th>Layer 1 Direction</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>"I'm at the age where I just buy the 5-star hotel pillow for my own bed"</td><td><span class="badge badge-navy">Track 1 -- Identity</span></td><td>New bedroom scene, same identity copy format</td></tr>
+        <tr><td>2</td><td>"5-Star Hotel Sleep Starts Here" + trust badges</td><td><span class="badge badge-green">Track 4 -- Education</span></td><td>New background, keep badge layout and social proof numbers</td></tr>
+        <tr><td>3</td><td>FluffCo vs Standard Fiber comparison</td><td><span class="badge badge-green">Track 4 -- Education</span></td><td>New visual treatment, keep comparison structure</td></tr>
+        <tr><td>4</td><td>"Hotel-Quality Down Alternative Pillow / Save $46 Now"</td><td><span class="badge badge-coral">Track 2 -- Price</span></td><td>New room scene, keep discount urgency framing</td></tr>
+        <tr><td>5</td><td>"Hotel-Quality Pillows at Home, Always $69"</td><td><span class="badge badge-coral">Track 2 -- Price</span></td><td>New lifestyle scene, keep price anchor copy</td></tr>
+        <tr><td>6</td><td>"Just Arrived -- The Hotel-Quality Down Alternative Pillow"</td><td><span class="badge badge-green">Track 4 -- Education</span></td><td>New product composition, keep novelty framing</td></tr>
+        <tr><td>7</td><td>5-star review UGC -- "Feel like expensive hotel pillows..."</td><td><span class="badge badge-amber" style="color:#8A6000;">Track 3 -- Social Proof</span></td><td>New background, keep review card format and 5-star visual</td></tr>
+        <tr><td>8</td><td>"Meet Your Best Sleep" -- plush hotel comfort</td><td><span class="badge" style="background:#F3EBF8;color:#6B359E;">Track 5 -- Lifestyle</span></td><td>New morning scene, keep outcome-focused copy angle</td></tr>
+        <tr><td>9</td><td>"Sleep Like A Dream" + feature callout bubbles</td><td><span class="badge badge-green">Track 4 -- Education</span></td><td>New scene, try single-feature focus instead of multi-callout</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- TRACKS -->
+<div class="section">
+  <div class="section-eyebrow">Track Breakdown -- 500 Assets</div>
+  <div class="track-grid">
+
+    <!-- T1 -->
+    <div class="track-card t1">
+      <div class="track-top"></div>
+      <div class="track-body">
+        <div class="track-eyebrow">Track 01</div>
+        <div class="track-name">Identity / Awareness</div>
+        <div class="track-meta">100 assets -- No price -- 40 Layer 1 / 60 Layer 2</div>
+        <div class="track-goal">Stop the scroll for cold audiences. Lead with a relatable moment or feeling, not a product claim. Make the reader feel seen before the product appears.</div>
+        <div class="copy-block">
+          <div class="copy-block-title">Example Headlines</div>
+          <div class="copy-item">"I'm at the age where I finally stopped settling for bad pillows"</div>
+          <div class="copy-item">"I'm at the age where good sleep is non-negotiable"</div>
+          <div class="copy-item">"Why does my bed never feel as good as a hotel bed"</div>
+          <div class="copy-item">"Things I no longer cheap out on: my pillow"</div>
+          <div class="copy-item">"Nobody warned me how much a good pillow changes everything"</div>
+        </div>
+        <div class="visual-note">Warm editorial bedroom scenes. Soft morning light. Aspirational but attainable. Minimal text overlay -- let the image carry the emotion. No price anywhere.</div>
+      </div>
+    </div>
+
+    <!-- T2 -->
+    <div class="track-card t2">
+      <div class="track-top"></div>
+      <div class="track-body">
+        <div class="track-eyebrow">Track 02</div>
+        <div class="track-name">Price / Value</div>
+        <div class="track-meta">100 assets -- 60 with price / 40 implied -- 40 Layer 1 / 60 Layer 2</div>
+        <div class="track-goal">Resolve the price objection for cold audiences. Position $69.90 as the smart obvious choice vs hotel markup.</div>
+        <div class="copy-block">
+          <div class="copy-block-title">With Price -- 60 assets</div>
+          <div class="copy-item">"Hotel pillows cost $200+. Yours is $69.90"</div>
+          <div class="copy-item">"The exact pillow from 5-star hotels. Not the 5-star price. $69.90"</div>
+          <div class="copy-item">"Hotel-quality sleep starts at $69.90"</div>
+          <div class="copy-item">"Four Seasons uses these. You can own them for $69.90"</div>
+          <div class="copy-item">"Stop renting hotel sleep. Own it for $69.90"</div>
+        </div>
+        <div class="copy-block">
+          <div class="copy-block-title">Implied Value -- 40 assets</div>
+          <div class="copy-item">"No hotel markup. Ever."</div>
+          <div class="copy-item">"The exact pillow luxury hotels use -- without the hotel bill"</div>
+          <div class="copy-item">"Stop paying hotel prices for hotel-quality sleep"</div>
+          <div class="copy-item">"Same pillow. A fraction of the price"</div>
+          <div class="copy-item">"Why are you still paying the hotel tax on your sleep"</div>
+        </div>
+        <div class="visual-note">CTA direction: "Shop Now" / "Get Yours Today" -- no price in button copy.</div>
+      </div>
+    </div>
+
+    <!-- T3 -->
+    <div class="track-card t3">
+      <div class="track-top"></div>
+      <div class="track-body">
+        <div class="track-eyebrow">Track 03</div>
+        <div class="track-name">Social Proof</div>
+        <div class="track-meta">100 assets -- No price -- 40 Layer 1 / 60 Layer 2</div>
+        <div class="track-goal">Let real customer language close the sale. Raw review copy builds trust faster than brand claims. Do not over-polish the language.</div>
+        <div class="copy-block">
+          <div class="copy-block-title">Review Angles -- 5 examples</div>
+          <div class="copy-item">"Feels like expensive hotel pillows without the high price"</div>
+          <div class="copy-item">"I actually look forward to going to bed now"</div>
+          <div class="copy-item">"Best pillows I've ever owned. I'll never buy another brand"</div>
+          <div class="copy-item">"So soft yet firm -- exactly what I needed"</div>
+          <div class="copy-item">"Worth every single penny. My only regret is not buying sooner"</div>
+        </div>
+        <div class="visual-note">Review card overlaid on product or lifestyle image. 5-star rating visible. "Verified Buyer" label present. Warm trustworthy aesthetic -- not clinical.</div>
+      </div>
+    </div>
+
+    <!-- T4 -->
+    <div class="track-card t4">
+      <div class="track-top"></div>
+      <div class="track-body">
+        <div class="track-eyebrow">Track 04</div>
+        <div class="track-name">Product Education</div>
+        <div class="track-meta">100 assets -- Selective price -- 40 Layer 1 / 60 Layer 2</div>
+        <div class="track-goal">Answer the "is down alternative as good as real down?" objection. Position as the smart, modern choice -- not a compromise.</div>
+        <div class="copy-block">
+          <div class="copy-block-title">Example Headlines</div>
+          <div class="copy-item">"Hypoallergenic. Hotel-quality. $69.90"</div>
+          <div class="copy-item">"Everything you love about hotel pillows. Nothing you don't"</div>
+          <div class="copy-item">"Down Alternative: softer, cleaner, no allergens"</div>
+          <div class="copy-item">"RDS certified. 794K+ happy sleepers"</div>
+          <div class="copy-item">"Why 794,000 people switched to FluffCo"</div>
+        </div>
+        <div class="visual-note">Split comparison layouts, feature callout bubbles, badge and icon grids. Reference Asset 2 and Asset 3 as visual style benchmarks for this track.</div>
+      </div>
+    </div>
+
+    <!-- T5 -->
+    <div class="track-card t5 full">
+      <div class="track-top"></div>
+      <div class="track-body">
+        <div class="track-eyebrow">Track 05</div>
+        <div class="track-name">Lifestyle / Aspiration</div>
+        <div class="track-meta">100 assets -- No price -- 40 Layer 1 / 60 Layer 2</div>
+        <div class="track-goal">Sell the feeling, not the product. Target people upgrading their home and sleep experience. Outcome-focused -- what does life feel like after buying this pillow. No price anywhere in this track.</div>
+        <div class="two-col">
+          <div class="copy-block">
+            <div class="copy-block-title">Example Headlines</div>
+            <div class="copy-item">"Hotel-quality sleep. Every single night"</div>
+            <div class="copy-item">"The last pillow upgrade you'll ever need"</div>
+            <div class="copy-item">"Wake up feeling like you stayed at a 5-star hotel"</div>
+            <div class="copy-item">"What if every morning felt like a hotel checkout morning"</div>
+            <div class="copy-item">"Your bed should feel this good. Now it can."</div>
+          </div>
+          <div style="background:var(--blush);border-radius:8px;padding:14px;">
+            <div class="copy-block-title">Visual Direction</div>
+            <div class="visual-note" style="font-style:normal;color:var(--mid);">Morning routines, luxurious unmade beds, stacked pillows in warm-lit rooms. Lifestyle over product. Minimal text overlay -- let the visual sell the feeling. Warm cream and blush color temperature preferred. No price, no CTA button needed in this track.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- STANDING INSTRUCTION -->
+<div class="standing">
+  <h2>Standing Instruction for Blitzads</h2>
+  <p>Do not produce 500 assets as visual templates with swapped copy. <strong>Each track must feel visually distinct from the others.</strong> Each layer must feel structurally distinct from the other.</p>
+  <p><strong>Tracks 1 and 5:</strong> editorial, organic, emotional &nbsp; <strong>Tracks 2 and 4:</strong> direct-response, clear, conversion-focused &nbsp; <strong>Track 3:</strong> human, authentic, review-native</p>
+  <p>If a Layer 2 asset could pass as a Layer 1 variation, it is not Layer 2. Regenerate.</p>
+  <p>If there are questions on visual direction, <strong>the 9 reference assets are the brand benchmark.</strong> Match their tone, palette, and quality standard -- then go beyond them.</p>
+  <div class="standing-grid">
+    <div class="standing-item"><div class="standing-item-label">Quality check</div><div class="standing-item-val">Blitzads QC before submission. Client approves or disapproves on delivery.</div></div>
+    <div class="standing-item"><div class="standing-item-label">Delivery cadence</div><div class="standing-item-val">APRW3 - One time (for now)</div></div>
+    <div class="standing-item"><div class="standing-item-label">Attach with this brief</div><div class="standing-item-val">22 existing assets + Safe Area Guide PNG</div></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">BlitzAds x Skyvane</div>
+  <div class="footer-note">Creative Brief -- April 2026 -- Prepared by Skyvane</div>
+</div>
+
+</div>
+</body>
+</html>
